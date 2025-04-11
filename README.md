@@ -8,7 +8,7 @@ Follow these steps:
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
-git clone [(https://github.com/ferahfeza/motor-moment-mobile-viz)]
+git clone https://github.com/ferahfeza/motor-moment-mobile-viz
 
 # Step 2: Navigate to the project directory.
 cd motor-moment-mobile-viz

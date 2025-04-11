@@ -27,7 +27,7 @@ const Index = () => {
     Rr: 0.6,    // Rotor resistance
     Xr: 1.5,    // Rotor reactance
     poles: 4,   // 4-pole motor (common)
-    voltage: 400 // 400V (common for 3-phase)
+    voltage: 380 // 380V (common for 3-phase)
   });
 
   const [isRunning, setIsRunning] = useState(false);
@@ -70,7 +70,7 @@ const Index = () => {
       {/* Header */}
       <div className="sticky top-0 z-10 bg-card shadow-sm">
         <div className="container mx-auto px-4 py-3">
-          <h1 className="text-xl font-bold text-center">Asenkron Motor Analizi</h1>
+          <h1 className="text-xl font-bold text-center">Asenkron Motor Kayma-Moment Karakteristiği</h1>
         </div>
       </div>
       

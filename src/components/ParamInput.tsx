@@ -34,7 +34,7 @@ const ParamInput = ({ params, setParams, isRunning, setIsRunning }: ParamInputPr
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold">Motor Parameters</h2>
         <div className="flex items-center space-x-2">
-          <Label htmlFor="advanced" className="text-sm">Advanced</Label>
+          <Label htmlFor="advanced" className="text-sm">Gelişmiş Ayarlama</Label>
           <Switch 
             id="advanced" 
             checked={advanced}
@@ -45,7 +45,7 @@ const ParamInput = ({ params, setParams, isRunning, setIsRunning }: ParamInputPr
       
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="voltage">Voltage (V)</Label>
+          <Label htmlFor="voltage">Nominal Gerilim (V)</Label>
           <Input
             id="voltage"
             type="number"
@@ -57,7 +57,7 @@ const ParamInput = ({ params, setParams, isRunning, setIsRunning }: ParamInputPr
         </div>
         
         <div className="space-y-2">
-          <Label htmlFor="poles">Poles</Label>
+          <Label htmlFor="poles">Kutup Sayısı</Label>
           <Input
             id="poles"
             type="number"
@@ -72,7 +72,7 @@ const ParamInput = ({ params, setParams, isRunning, setIsRunning }: ParamInputPr
         {advanced && (
           <>
             <div className="space-y-2">
-              <Label htmlFor="Rs">Stator Resistance (Ω)</Label>
+              <Label htmlFor="Rs">Stator Direnci (Ω)</Label>
               <div className="flex items-center space-x-2">
                 <Slider
                   id="Rs"
@@ -87,7 +87,7 @@ const ParamInput = ({ params, setParams, isRunning, setIsRunning }: ParamInputPr
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="Rr">Rotor Resistance (Ω)</Label>
+              <Label htmlFor="Rr">Rotor Direnci (Ω)</Label>
               <div className="flex items-center space-x-2">
                 <Slider
                   id="Rr"
@@ -102,7 +102,7 @@ const ParamInput = ({ params, setParams, isRunning, setIsRunning }: ParamInputPr
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="Xs">Stator Reactance (Ω)</Label>
+              <Label htmlFor="Xs">Stator Reaktansı (Ω)</Label>
               <div className="flex items-center space-x-2">
                 <Slider
                   id="Xs"
@@ -117,7 +117,7 @@ const ParamInput = ({ params, setParams, isRunning, setIsRunning }: ParamInputPr
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="Xr">Rotor Reactance (Ω)</Label>
+              <Label htmlFor="Xr">Rotor Reaktansı (Ω)</Label>
               <div className="flex items-center space-x-2">
                 <Slider
                   id="Xr"
@@ -132,7 +132,7 @@ const ParamInput = ({ params, setParams, isRunning, setIsRunning }: ParamInputPr
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="Xm">Magnetizing Reactance (Ω)</Label>
+              <Label htmlFor="Xm">Mıknatıslama Reaktansı (Ω)</Label>
               <div className="flex items-center space-x-2">
                 <Slider
                   id="Xm"
@@ -150,7 +150,7 @@ const ParamInput = ({ params, setParams, isRunning, setIsRunning }: ParamInputPr
       </div>
       
       <div className="flex justify-between items-center mt-4 pt-4 border-t">
-        <Label htmlFor="running" className="text-sm font-medium">Motor Status</Label>
+        <Label htmlFor="running" className="text-sm font-medium">Motor Durumu</Label>
         <div className="flex items-center space-x-2">
           <span className={isRunning ? "text-muted-foreground" : "text-primary"}>Off</span>
           <Switch 

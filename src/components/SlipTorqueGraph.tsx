@@ -56,7 +56,8 @@ const SlipTorqueGraph = ({ params, currentSlip }: SlipTorqueGraphProps) => {
       });
     }
     
-    return dataPoints;
+    // Reverse the data points so slip goes from 1 to 0 (left to right in the chart)
+    return dataPoints.reverse();
   }, [params]);
   
   // Find maximum torque point
@@ -93,6 +94,7 @@ const SlipTorqueGraph = ({ params, currentSlip }: SlipTorqueGraphProps) => {
               dataKey="slip" 
               tickFormatter={(value) => `${(value * 100).toFixed(0)}%`}
               label={{ value: 'Slip (%)', position: 'insideBottomRight', offset: -5 }}
+              reversed={true} // Reverse the X-axis to show slip from 1 to 0 (left to right)
             />
             <YAxis 
               label={{ value: 'Torque (Nm)', angle: -90, position: 'insideLeft' }}

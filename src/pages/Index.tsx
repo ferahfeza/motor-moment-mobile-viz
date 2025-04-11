@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -41,28 +40,29 @@ const Index = () => {
   const currentTorque = calculateTorque(currentSlip, params);
   const actualSpeed = syncSpeed * (1 - currentSlip);
 
-  // Gradually change slip based on motor state
+  // Motorun durma ve çalışma durumlarında kayma değerini kontrol eden useEffect
   useEffect(() => {
-    if (!isRunning) {
-      // When motor is off, gradually increase slip to 1 (stopped)
-      const timer = setInterval(() => {
+    let timer: NodeJS.Timeout;
+    
+    if (isRunning) {
+      // Motor çalışırken kayma değerini 0'a doğru azaltma
+      timer = setInterval(() => {
         setCurrentSlip(prevSlip => {
-          const newSlip = prevSlip + 0.01;
-          return newSlip >= 1 ? 1 : newSlip;
+          const newSlip = prevSlip > 0.03 ? prevSlip - 0.01 : 0.03;
+          return newSlip;
         });
       }, 100);
-      return () => clearInterval(timer);
     } else {
-      // When motor is on, gradually decrease slip to operating point
-      const timer = setInterval(() => {
+      // Motor durdurulduğunda kayma değerini 100%'e doğru arttırma
+      timer = setInterval(() => {
         setCurrentSlip(prevSlip => {
-          const targetSlip = 0.03; // Typical operating slip
-          const newSlip = prevSlip - 0.01;
-          return newSlip <= targetSlip ? targetSlip : newSlip;
+          const newSlip = Math.min(prevSlip + 0.01, 1);
+          return newSlip;
         });
       }, 100);
-      return () => clearInterval(timer);
     }
+    
+    return () => clearInterval(timer);
   }, [isRunning]);
 
   return (
